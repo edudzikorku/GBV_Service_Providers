@@ -34,7 +34,7 @@ var config = {
     // Icon definitions 
     icons: {
         "health services": {
-            icon: 'fa-hospital',
+            icon: 'fa-solid fa-h',
             colour: 'red'
         },
         "education services": {
