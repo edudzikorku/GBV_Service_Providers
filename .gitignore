@@ -10,3 +10,6 @@ sample-images/
 data/old/
 data/csv/
 
+# Ignore vs code 
+.vscode/
+

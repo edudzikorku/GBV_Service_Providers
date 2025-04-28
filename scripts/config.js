@@ -65,7 +65,7 @@ var config = {
 
     // Paths 
     // Data crs must be in WGS84:4326
-    providerDataPath: 'data/districts.geojson',
-    greaterAccraDistrictDataPath: 'data/gbv_service_providers.geojson',
+    providerDataPath: 'data/gbv_service_providers.geojson',
+    greaterAccraDistrictDataPath: 'data/districts.geojson',
     imagePath: "images/"
 }
