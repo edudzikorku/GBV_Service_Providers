@@ -1,0 +1,393 @@
+
+/* Media Queries */
+/* For desktop: Create a grid layout with three columns */
+@media screen and (min-width: 992px) {
+
+    .panel-close-btn {
+        display: none; /* Hide close button on desktop */
+    }
+
+    #app-container {
+        display: grid;
+        grid-template-columns: 300px 1fr 340px;
+        grid-template-areas: "stats map controls";
+        height: 100vh;
+        width: 100%;
+        position: relative;
+    }
+    
+    #stats-panel {
+        grid-area: stats;
+        position: relative; /* Change from absolute positioning */
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 140%;
+        max-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: 2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    #map {
+        grid-area: map;
+        flex: none; /* Remove flex properties */
+        width: 100%;
+        height: 100%;
+    }
+    
+    #controls-panel {
+        grid-area: controls;
+        position: relative; /* Change from absolute positioning */
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 100%;
+        max-height: 100vh;
+        margin: 0;
+        border-radius: 0;
+        box-shadow: -2px 0 10px rgba(0,0,0,0.1);
+    }
+    
+    /* Adjust the map controls to avoid overlap with panels */
+    .leaflet-control-container .leaflet-left {
+        left: 200px;
+        /* bottom: 30px; */
+    }
+    
+    .leaflet-control-container .leaflet-right {
+        right: 200px;
+    }
+    
+    .leaflet-control-scale {
+        right: 10px;  /* move it nicely to the far right */
+        left: 150px;   /* important: unset left alignment */
+    }
+    
+    /* Hide mobile header on desktop */
+    #mobile-header {
+        display: none;
+    }
+
+    /* Add more padding to the panel content to avoid text being too close to edges */
+    #stats-panel, #controls-panel {
+        padding: 25px;
+        overflow-y: auto;
+    }
+    
+    /* Ensure panel titles have proper spacing */
+    #stats-panel h3, #controls-panel h3 {
+        margin-top: 0;
+        margin-right: 30px; /* Give space for any potential UI elements */
+    }
+
+    .leaflet-control-attribution.leaflet-control {
+        display: none;
+    }
+}
+
+/* Retain existing mobile styles for small screen sizes */
+@media screen and (max-width: 991px) {
+    /* Your current mobile panel behavior */
+    #app-container {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #mobile-header {
+        display: flex;
+    }
+    
+    #stats-panel {
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 100vh;
+        width: 290px;
+        transform: translateX(-100%);
+        z-index: 1001;
+        transition: transform 0.3s ease;
+    }
+    
+    #stats-panel.active {
+        transform: translateX(0);
+    }
+    
+    #controls-panel {
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        width: 320px;
+        transform: translateX(100%);
+        z-index: 1001;
+        transition: transform 0.3s ease;
+    }
+    
+    #controls-panel.active {
+        transform: translateX(0);
+    }
+    
+    /* Show overlay when panels are active */
+    .panel-overlay {
+        display: block;
+    }
+    .panel-close-btn {
+        display: flex;
+    }
+
+    /* Add more padding to the panel content to avoid text being too close to edges */
+    #stats-panel, #controls-panel {
+        padding: 25px;
+        overflow-y: auto;
+    }
+    
+    /* Ensure panel titles have proper spacing */
+    #stats-panel h3, #controls-panel h3 {
+        margin-top: 0;
+        margin-right: 30px; /* Give space for any potential UI elements */
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    #stats-panel, #controls-panel {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        margin: 10px 0;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
+    
+    #chart-container {
+        height: 280px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    /* #app-container {
+        height: auto;
+        min-height: 100vh;
+    } */
+    #app-container {
+        height: auto;
+        min-height: 100vh;
+        padding-top: 50px; /* Add this */
+        box-sizing: border-box; /* Add this */
+    }
+
+    /* #mobile-header {
+        display: flex;
+    } */
+    #mobile-header {
+        display: flex;
+        position: fixed; /* Add this */
+        top: 0; /* Add this */
+        left: 0; /* Add this */
+        right: 0; /* Add this */
+        height: 50px; /* Add this */
+        z-index: 1002; /* Ensure this is present */
+    }
+    
+    #stats-panel, #controls-panel {
+        position: fixed;
+        width: 85%;
+        height: 100vh;
+        overflow-y: auto;
+        padding: 20px;
+        margin: 0;
+        z-index: 1001;
+    }
+    
+    #stats-panel {
+        left: 0;
+        transform: translateX(-100%);
+    }
+    
+    #controls-panel {
+        right: 0;
+        transform: translateX(100%);
+    }
+    
+    #stats-panel.active, #controls-panel.active {
+        transform: translateX(0);
+        z-index: 1003;
+    }
+    
+    .panel-overlay {
+        display: block;
+    }
+    
+    #map {
+        margin-top: 20px; /* Match header height */
+        height: calc(100vh - 50px) !important; /* Adjust based on header height */
+    }
+    
+    #chart-container {
+        height: 220px;
+    }
+    
+    #institution-count-value {
+        font-size: 50px;
+    }
+    
+    /* Ensure content doesn't overlap fixed header */
+    #controls-panel, #stats-panel {
+        padding-top: 60px; /* Space for close button */
+        box-sizing: border-box;
+    }
+
+    .leaflet-control-container .leaflet-left {
+        /* left: 200px; */
+        bottom: 50px;
+    }
+
+    .leaflet-control-scale {
+        right: 10px;  /* move it nicely to the far right */
+        left: 150px;   /* important: unset left alignment */
+        bottom: 100px
+    }
+}
+
+/* Tablet-specific adjustments */
+@media screen and (min-width: 601px) and (max-width: 768px) {
+    #filter-controls {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    #filter-controls {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+    }
+    
+    .filter-option label {
+        padding: 8px 10px;
+        font-size: 13px;
+    }
+    
+    .filter-option input[type="checkbox"] {
+        width: 16px;
+        height: 16px;
+    }
+    
+    #chart-container {
+        height: 200px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #stats-panel, #controls-panel {
+        width: 100%;
+        padding: 15px;
+    }
+    
+    #filter-controls {
+        grid-template-columns: 1fr 1fr;
+        gap: 8px;
+    }
+    
+    #chart-container {
+        height: 180px;
+    }
+    
+    #institution-count-value {
+        font-size: 42px;
+    }
+    
+    #institution-count h2 {
+        font-size: 16px;
+    }
+    
+    .search-wrapper {
+        margin-bottom: 10px;
+    }
+    
+    #search-input {
+        font-size: 16px; /* Better for mobile input */
+    }
+    
+    /* Make sure panels don't overflow screen edges */
+    #controls-panel, #stats-panel {
+        padding-top: 50px;
+        padding-bottom: 20px;
+    }
+
+
+    #clear-route,
+    .get-directions {
+        padding: 8px 12px;
+        font-size: 13px;
+    }
+    
+    #clear-route::before,
+    .get-directions::before {
+        width: 14px;
+        height: 14px;
+        margin-right: 6px;
+    }
+
+}
+
+/* Tiny phones */
+@media screen and (max-width: 360px) {
+    #filter-controls {
+        grid-template-columns: 1fr !important;
+    }
+    
+    #chart-container {
+        height: 160px;
+    }
+    
+    #institution-count-value {
+        font-size: 36px;
+    }
+    
+    #institution-count h2 {
+        font-size: 14px;
+    }
+}
+
+/* Z-index management */
+#mobile-header {
+    z-index: 1002;
+}
+
+#controls-panel.active, #stats-panel.active {
+    z-index: 1003;
+}
+
+.leaflet-top {
+    z-index: 900 !important;
+}
+
+/* High contrast mode support */
+@media (forced-colors: active) {
+    .filter-option input[type="checkbox"]:checked {
+        forced-color-adjust: none;
+    }
+    
+    #mobile-header button {
+        forced-color-adjust: none;
+    }
+    
+    .chart-bar {
+        forced-color-adjust: none;
+    }
+}
+
+/* Focus states for keyboard navigation */
+button:focus-visible,
+input:focus-visible,
+.filter-option label:focus-within {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+}
+
+/* Ensure chart responsiveness */
+#stats-chart {
+    width: 100% !important;
+    height: 100% !important;
+}
+
