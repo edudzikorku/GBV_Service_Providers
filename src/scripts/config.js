@@ -65,8 +65,8 @@ var config = {
 
     // Paths 
     // Data crs must be in WGS84:4326
-    providerDataPath: '../src/data/gbv_service_providers.geojson',
-    greaterAccraDistrictDataPath: '../src/data/districts.geojson',
+    providerDataPath: 'src/data/gbv_service_providers.geojson',
+    greaterAccraDistrictDataPath: 'src/data/districts.geojson',
     imagePath: "images/",
 
     // Legend Icon definitions 
