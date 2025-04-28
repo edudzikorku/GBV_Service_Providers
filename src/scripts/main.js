@@ -142,6 +142,36 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scale bar 
     L.control.scale({ position: 'bottomright' }).addTo(map);
 
+    // Create and add a legend to the map 
+    function createServiceLegend() {
+        const legendContainer = document.getElementById('service-legend');
+        const today = new Date();
+        const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+        
+        let legendHTML = `
+            <h4>Service Provider Types</h4>
+            <div class="legend-items">
+        `;
+        
+        Object.entries(config.legendIcons).forEach(([category, {icon, colour}]) => {
+            legendHTML += `
+                <div class="service-legend-item">
+                    <i class="fa ${icon} service-legend-icon" style="color:${colour}"></i>
+                    <span class="service-legend-label">${category}</span>
+                </div>
+            `;
+        });
+        
+        legendHTML += `
+            </div>
+            <div class="legend-date">Data as of ${formattedDate}</div>
+        `;
+        
+        legendContainer.innerHTML = legendHTML;
+    }
+    
+   
+
     // Initialize variables 
     var currentLanguage = localStorage.getItem('gbvMapLanguage') || 'en';
     // var filteredMarkers = L.markerClusterGroup();
@@ -154,9 +184,13 @@ document.addEventListener('DOMContentLoaded', function() {
     initUI();
     // Load data
     loadDistrictData();
+    // Add legend 
+    createServiceLegend();
+    // Load service provider data
     loadServiceProviderData();
     // Initialize mobile UI
     initMobileUI();
+
    
 
     function initUI() {

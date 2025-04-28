@@ -5,7 +5,7 @@
 body {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Poppins', 'Helvetica Neue', sans-serif;
     line-height: 1.6;
     color: #333;
     -webkit-font-smoothing: antialiased;
@@ -15,7 +15,7 @@ body {
 
 /* Typography */
 h1, h2, h3, h4 {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Poppins', sans-serif;
     font-weight: 600;
     letter-spacing: -0.02em;
     color: #1e293b;
@@ -103,6 +103,10 @@ h1, h2, h3, h4 {
     display: flex;
     flex-direction: column;
 }
+
+/* #stats-panel h3 {
+    text-align: center;
+} */
 
 /* Controls Panel */
 #controls-panel {
@@ -314,6 +318,7 @@ h1, h2, h3, h4 {
     min-height: 250px;
     position: relative;
     margin-bottom: 25px;
+    left: 12px;
 }
 
 /* Chart styling improvements */
@@ -356,6 +361,7 @@ h1, h2, h3, h4 {
     font-size: 18px;
     color: #4a5568;
     margin-bottom: 5px;
+    text-align: left !important;
 }
 
 #institution-count-value {
@@ -534,14 +540,61 @@ h1, h2, h3, h4 {
 }
 
 
-/* Decorate the close button  */
-/* .panel-close-btn {
-    background: transparent;
-    border: none;
-    color: #4a5568;
-    font-size: 20px;
-    cursor: pointer;
-    padding: 0;
-    margin-left: auto;
-    transition: all 0.2s ease;
+/* Legend decorations  */
+/* .legend {
+    background: white;
+    padding: 12px;
+    border-radius: 8px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.5;
+    left: 150px; 
+}
+.legend h4 {
+    margin: 0 0 10px;
+    font-size: 16px;
+}
+.legend i.fa {
+    margin-right: 8px;
+    width: 20px;
+    text-align: center;
 } */
+
+.service-legend {
+    margin: 15px 0;
+    padding: 12px;
+    background: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.service-legend h4 {
+    margin-top: 0;
+    font-size: 15px;
+    color: #495057;
+    /* text-align: center; */
+}
+
+.service-legend-item {
+    display: flex;
+    align-items: center;
+    margin: 6px 0;
+}
+
+.service-legend-icon {
+    width: 18px;
+    margin-right: 8px;
+    text-align: center;
+}
+
+.service-legend-label {
+    font-size: 13px;
+    color: #343a40;
+}
+
+.legend-date {
+    font-size: 11px;
+    color: #6c757d;
+    margin-top: 8px;
+    font-style: italic;
+}

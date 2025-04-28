@@ -7,8 +7,8 @@ old/
 sample-images/
 
 # Ignore irrelevant data files 
-data/old/
-data/csv/
+src/data/old/
+src/data/csv/
 
 # Ignore vs code 
 .vscode/

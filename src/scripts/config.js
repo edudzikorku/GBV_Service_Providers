@@ -31,7 +31,7 @@ var config = {
         }
     },
 
-    // Icon definitions 
+    // Map Icon definitions 
     icons: {
         "health services": {
             icon: 'fa-solid fa-h',
@@ -65,7 +65,40 @@ var config = {
 
     // Paths 
     // Data crs must be in WGS84:4326
-    providerDataPath: 'data/gbv_service_providers.geojson',
-    greaterAccraDistrictDataPath: 'data/districts.geojson',
-    imagePath: "images/"
+    providerDataPath: '../src/data/gbv_service_providers.geojson',
+    greaterAccraDistrictDataPath: '../src/data/districts.geojson',
+    imagePath: "images/",
+
+    // Legend Icon definitions 
+    legendIcons: {
+        "Health Services": {
+            icon: 'fa-solid fa-h',
+            colour: 'red'
+        },
+        "Education Services": {
+            icon: 'fa-school',
+            colour: 'blue'
+        },
+        "Legal & Human Rights": {
+            icon: 'fa-gavel',
+            colour: 'green'
+        },
+        "Law Enforcement & Protection": {
+            icon: 'fa-shield',
+            colour: 'gray'
+        },
+        "Child & South Support NGOs": {
+            icon: 'fa-hands-helping',
+            colour: 'orange'
+        },
+        "Government & Municipal Administration": {
+            icon: 'fa-landmark',
+            colour: 'purple'
+        },
+        "Social Welfare & Community Development": {
+            icon: 'fa-heart',
+            colour: '#735751'
+        }
+    },
+
 }

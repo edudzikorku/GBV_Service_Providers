@@ -84,6 +84,45 @@
     .leaflet-control-attribution.leaflet-control {
         display: none;
     }
+
+
+    /* .service-legend {
+        margin: 15px 0;
+        padding: 12px;
+        background: #f8f9fa;
+        border-radius: 8px;
+        border: 1px solid #dee2e6;
+    }
+    
+    .service-legend h4 {
+        margin-top: 0;
+        font-size: 15px;
+        color: #495057;
+    }
+    
+    .service-legend-item {
+        display: flex;
+        align-items: center;
+        margin: 6px 0;
+    }
+    
+    .service-legend-icon {
+        width: 18px;
+        margin-right: 8px;
+        text-align: center;
+    }
+    
+    .service-legend-label {
+        font-size: 13px;
+        color: #343a40;
+    }
+    
+    .legend-date {
+        font-size: 11px;
+        color: #6c757d;
+        margin-top: 8px;
+        font-style: italic;
+    } */
 }
 
 /* Retain existing mobile styles for small screen sizes */

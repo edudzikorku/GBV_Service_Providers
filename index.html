@@ -22,8 +22,8 @@
         <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.4.1/dist/MarkerCluster.Default.css"/>
     
         <!-- Custom CSS  -->
-        <link rel="stylesheet" href="styles/index.css" />
-        <link rel="stylesheet" href="styles/media.css" />        
+        <link rel="stylesheet" href="src/styles/index.css" />
+        <link rel="stylesheet" href="src/styles/media.css" />        
     </head>
 
     <body>
@@ -38,9 +38,16 @@
             <!-- Left panel for statistics -->
             <div id="stats-panel">
                 <h3>Categories of Service Providers</h3>
+
+                <!-- Legend  -->
+                 <div id="service-legend" class="service-legend"></div>
+
+                 <!-- Chart (Bar chart / Pie chart)   -->
                 <div id="chart-container">
                     <canvas id="stats-chart"></canvas>
                 </div>
+
+                <!-- Summary statistics of the total number of service providers mapped. -->
                 <div id="institution-count">
                     <h2>Number of Service Providers Mapped</h2>
                     <p id="institution-count-value">0</p>
@@ -123,9 +130,9 @@
         <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
         
         <!-- Configuration  -->
-        <script src="scripts/config.js"></script>
+        <script src="src/scripts/config.js"></script>
 
         <!-- Main Application  -->
-        <script src="scripts/main.js"></script>
+        <script src="src/scripts/main.js"></script>
     </body>
 </html>
