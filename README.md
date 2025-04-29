@@ -9,7 +9,7 @@ A web map displaying Gender-Based Violence (GBV) service providers (schools, hos
 
 ---
 
-## Table of Contents 📑
+## Table of Contents :bookmark_tabs:
 - [About](#about)
 - [Usage](#usage)
   - [Installation](#installation)
@@ -26,7 +26,7 @@ A web map displaying Gender-Based Violence (GBV) service providers (schools, hos
 
 ---
 
-## About ℹ️
+## About :information_source:
 This interactive web map visualizes GBV service providers across coastal districts in Ghana, including:
 - Schools
 - Hospitals/clinics
@@ -39,7 +39,7 @@ The project aims to:
 - Assist NGOs and government agencies in resource planning
 - Raise awareness about available GBV services
 
-Built with 🛠️:
+Built with :hammer_and_wrench::
 [![Leaflet](src/images/logos/leaflet-logo.svg)](https://leafletjs.com/) 
 [![QGIS](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/120px-QGIS_logo_new.svg.png)](https://qgis.org/) 
 [![HTML5](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png)](https://developer.mozilla.org/en-US/docs/Web/HTML) 
@@ -48,7 +48,7 @@ Built with 🛠️:
 
 ---
 
-## Usage
+## Usage :memo:
 
 ### Installation
 1. Clone the repository:
@@ -62,18 +62,21 @@ Built with 🛠️:
 
 No additional installation is required as this is a client-side web application.
 
-### Running the Map
+### Running the Map :rocket:
 1. Open `index.html` in any modern web browser
 2. Use the map controls to:
    - Zoom in/out
    - Toggle between different service provider layers
    - Click on markers for more information
+   - Filter service providers by type
+   - Search for specific service providers
+   - Find directions to the nearest service provider
 
 ---
 
-## Development
+## Development :technologist:
 
-### Pre-Requisites ✅
+### Pre-Requisites :white_check_mark:
 - Modern web browser (Chrome, Firefox, Edge)
 - Text editor (VS Code, Sublime Text, etc.)
 - Basic understanding of:
@@ -89,7 +92,7 @@ No additional installation is required as this is a client-side web application.
    live-server
    ```
 
-### File Structure 📁
+### File Structure :file_folder:
 ```
 index.html                # Main application entry point
 src/
@@ -105,7 +108,7 @@ src/
     └── media.css         # Responsive styles
 ```
 
-### Data Sources 📊
+### Data Sources :bar_chart:
 - Service provider locations: Collected from Google Maps via [Apify](https://console.apify.com/)
 - District boundaries: [Humanitarian Data Exchange](https://data.humdata.org/dataset/cod-ab-gha)
 - Data processed using [QGIS](https://qgis.org/)
@@ -128,7 +131,7 @@ We welcome contributions to improve this project:
    - Create a feature branch (`feat-your-feature-name`)
    - Submit a PR to the `stage` branch
 
-### Branches
+### Branches :arrows_counterclockwise:
 - `main`: Production branch (stable releases)
 - `stage`: Development branch (active work)
 
@@ -139,7 +142,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## Acknowledgments 🙏
+## Acknowledgments :pray:
 - Leaflet.js for the mapping library
 - QGIS team for geospatial data processing
 - Humanitarian Data Exchange for boundary data
