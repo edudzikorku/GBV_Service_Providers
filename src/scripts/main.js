@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }),
     };
 
-    // Add the default OpenStreetMap layer
+    // Add the default ESRI Satellite layer
     tileLayers["ESRI Satellite"].addTo(map);
 
     // Create a layer control
@@ -142,7 +142,8 @@ document.addEventListener('DOMContentLoaded', function() {
     // Add scale bar 
     L.control.scale({ position: 'bottomright' }).addTo(map);
 
-    // Create and add a legend to the map 
+    // Create a function for displaying the legend associated with the service provider icons
+    // This function generates the HTML content for the service legend displayed on the map
     function createServiceLegend() {
         const legendContainer = document.getElementById('service-legend');
         const today = new Date();
@@ -190,8 +191,6 @@ document.addEventListener('DOMContentLoaded', function() {
     loadServiceProviderData();
     // Initialize mobile UI
     initMobileUI();
-
-   
 
     function initUI() {
         setupEventListeners();
@@ -429,7 +428,7 @@ document.addEventListener('DOMContentLoaded', function() {
         // Safely access properties with optional chaining and default values
         const properties = feature.properties || {};
         
-        // Handle image path more safely
+        // Handle image path
         const imagePath = properties.Photo_of_facility 
             ? `${config.imagePath}${properties.Photo_of_facility}` 
             : '';
