@@ -104,9 +104,6 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
-/* #stats-panel h3 {
-    text-align: center;
-} */
 
 /* Controls Panel */
 #controls-panel {
@@ -315,10 +312,10 @@ h1, h2, h3, h4 {
 /* Chart Container */
 #chart-container {
     flex: 1;
-    min-height: 250px;
+    min-height: 350px;
     position: relative;
     margin-bottom: 25px;
-    left: 12px;
+    left: 10px;
 }
 
 /* Chart styling improvements */
@@ -540,26 +537,7 @@ h1, h2, h3, h4 {
 }
 
 
-/* Legend decorations  */
-/* .legend {
-    background: white;
-    padding: 12px;
-    border-radius: 8px;
-    box-shadow: 0 0 15px rgba(0,0,0,0.2);
-    font-family: 'Poppins', sans-serif;
-    line-height: 1.5;
-    left: 150px; 
-}
-.legend h4 {
-    margin: 0 0 10px;
-    font-size: 16px;
-}
-.legend i.fa {
-    margin-right: 8px;
-    width: 20px;
-    text-align: center;
-} */
-
+/* Legend  */
 .service-legend {
     margin: 15px 0;
     padding: 12px;

@@ -47,7 +47,7 @@ var config = {
         },
         "law enforcement & protection": {
             icon: 'fa-shield',
-            colour: 'gray'
+            colour: 'black'
         },
         "child & youth support ngos": {
             icon: 'fa-hands-helping',
@@ -59,7 +59,12 @@ var config = {
         },
         "social welfare & community development": {
             icon: 'fa-heart',
-            colour: '#735751'
+            colour: 'pink'
+        },
+
+        default: {
+            icon: 'fa-map-marker-alt',
+            colour: 'yellow'
         }
     },
 
@@ -67,37 +72,38 @@ var config = {
     // Data crs must be in WGS84:4326
     providerDataPath: './src/data/gbv_service_providers.geojson',
     greaterAccraDistrictDataPath: './src/data/districts.geojson',
-    imagePath: "images/",
+    imagePath: "./src/images/",
 
     // Legend Icon definitions 
     legendIcons: {
         "Health Services": {
             icon: 'fa-solid fa-h',
-            colour: 'red'
+            colour: '#E15759'
         },
         "Education Services": {
             icon: 'fa-school',
-            colour: 'blue'
+            colour: '#4E79A7'
         },
         "Legal & Human Rights": {
             icon: 'fa-gavel',
-            colour: 'green'
+            colour: '#59A14F'
         },
         "Law Enforcement & Protection": {
             icon: 'fa-shield',
-            colour: 'gray'
+            colour: '#343a40'
         },
-        "Child & South Support NGOs": {
+        "Child & Youth Support NGOs": {
             icon: 'fa-hands-helping',
-            colour: 'orange'
+            colour: '#F28E2B'
         },
         "Government & Municipal Administration": {
             icon: 'fa-landmark',
-            colour: 'purple'
+            colour: '#B07AA1'
         },
         "Social Welfare & Community Development": {
             icon: 'fa-heart',
-            colour: '#735751'
+            // colour: '#735751'
+            colour:' #FFC0CB'
         }
     },
 

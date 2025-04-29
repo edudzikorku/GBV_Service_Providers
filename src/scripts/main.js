@@ -347,7 +347,14 @@ document.addEventListener('DOMContentLoaded', function() {
         // Extract sorted labels and data - no splitting needed here
         const labels = sortedEntries.map(entry => entry[0]);
         const data = sortedEntries.map(entry => entry[1]);
-        
+        // console.log("Sorted entries:", labels);
+
+        // Define a colour scheme
+        const backgroundColours = labels.map(label => {
+            const colourConfig = config.legendIcons[label] || { colour: '#735751' }; // Default colour if not found
+            return colourConfig.colour;
+        })
+
         var ctx = document.getElementById('stats-chart').getContext('2d');
         var chart = new Chart(ctx, {
             type: 'bar',
@@ -355,7 +362,8 @@ document.addEventListener('DOMContentLoaded', function() {
                 labels: labels,
                 datasets: [{
                     data: data,
-                    backgroundColor: ['#4E79A7', '#E15759', "#59A14F", '#F28E2B', '#B07AA1', '#FF9DA7', '#9C755F'],
+                    // backgroundColor: ['#4E79A7', '#E15759', "#59A14F", '#F28E2B', '#B07AA1', '#FF9DA7', '#9C755F'],
+                    backgroundColor: backgroundColours,
                 }]
             },
             options: {
@@ -513,14 +521,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
         // console.log("Service data loaded:", serviceData);
         // console.log("Filtered features count:", filteredFeatures.length);
+        // console.log("Filtered features:", filteredFeatures);
     
         // Add filtered markers to the cluster group
         filteredFeatures.forEach(function(feature) {
             var providerType = feature.properties.Type_of_service 
                 ? feature.properties.Type_of_service.toLowerCase() 
                 : 'default';
+            // console.log("Original Type:", feature.properties.Type_of_service, "Lowercase:", providerType);
             var iconConfig = config.icons[providerType] || config.icons.default;
-            
+            // console.log("Resolved icon config:", iconConfig); 
             var marker = L.marker(
                 [feature.geometry.coordinates[1], feature.geometry.coordinates[0]], 
                 {
@@ -531,6 +541,8 @@ document.addEventListener('DOMContentLoaded', function() {
                         iconSize: [35, 40]
                     })
                 }
+
+
             );
     
             // Create and bind popup content
