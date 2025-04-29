@@ -115,8 +115,6 @@ src/
 
 ---
 
-## Community
-
 ### Contribution
 We welcome contributions to improve this project:
 
