@@ -9,7 +9,7 @@ A web map displaying Gender-Based Violence (GBV) service providers (schools, hos
 
 ---
 
-## Table of Contents
+## Table of Contents 📑
 - [About](#about)
 - [Usage](#usage)
   - [Installation](#installation)
@@ -26,7 +26,7 @@ A web map displaying Gender-Based Violence (GBV) service providers (schools, hos
 
 ---
 
-## About
+## About ℹ️
 This interactive web map visualizes GBV service providers across coastal districts in Ghana, including:
 - Schools
 - Hospitals/clinics
@@ -39,7 +39,7 @@ The project aims to:
 - Assist NGOs and government agencies in resource planning
 - Raise awareness about available GBV services
 
-Built with:
+Built with 🛠️:
 [![Leaflet](src/images/logos/leaflet-logo.svg)](https://leafletjs.com/) 
 [![QGIS](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/120px-QGIS_logo_new.svg.png)](https://qgis.org/) 
 [![HTML5](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png)](https://developer.mozilla.org/en-US/docs/Web/HTML) 
@@ -73,7 +73,7 @@ No additional installation is required as this is a client-side web application.
 
 ## Development
 
-### Pre-Requisites
+### Pre-Requisites ✅
 - Modern web browser (Chrome, Firefox, Edge)
 - Text editor (VS Code, Sublime Text, etc.)
 - Basic understanding of:
@@ -89,7 +89,7 @@ No additional installation is required as this is a client-side web application.
    live-server
    ```
 
-### File Structure
+### File Structure 📁
 ```
 index.html                # Main application entry point
 src/
@@ -105,7 +105,7 @@ src/
     └── media.css         # Responsive styles
 ```
 
-### Data Sources
+### Data Sources 📊
 - Service provider locations: Collected from Google Maps via [Apify](https://console.apify.com/)
 - District boundaries: [Humanitarian Data Exchange](https://data.humdata.org/dataset/cod-ab-gha)
 - Data processed using [QGIS](https://qgis.org/)
@@ -134,12 +134,12 @@ We welcome contributions to improve this project:
 
 ---
 
-## License
+## License :scroll:
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ---
 
-## Acknowledgments
+## Acknowledgments 🙏
 - Leaflet.js for the mapping library
 - QGIS team for geospatial data processing
 - Humanitarian Data Exchange for boundary data
