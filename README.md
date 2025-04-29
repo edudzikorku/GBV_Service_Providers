@@ -40,7 +40,7 @@ The project aims to:
 - Raise awareness about available GBV services
 
 Built with:
-[![Leaflet](src/images/logos/leaflet.svg)](https://leafletjs.com/) 
+[![Leaflet](src/images/logos/leaflet-logo.svg)](https://leafletjs.com/) 
 [![QGIS](https://upload.wikimedia.org/wikipedia/commons/thumb/9/91/QGIS_logo_new.svg/120px-QGIS_logo_new.svg.png)](https://qgis.org/) 
 [![HTML5](https://upload.wikimedia.org/wikipedia/commons/thumb/6/61/HTML5_logo_and_wordmark.svg/120px-HTML5_logo_and_wordmark.svg.png)](https://developer.mozilla.org/en-US/docs/Web/HTML) 
 [![CSS3](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d5/CSS3_logo_and_wordmark.svg/120px-CSS3_logo_and_wordmark.svg.png)](https://developer.mozilla.org/en-US/docs/Web/CSS) 
@@ -142,5 +142,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## Acknowledgments
 - Leaflet.js for the mapping library
 - QGIS team for geospatial data processing
-- Ghana Open Data Initiative for boundary data
+- Humanitarian Data Exchange for boundary data
 - All GBV service providers featured on the map
