@@ -75,103 +75,8 @@ function initMobileUI() {
 
 // Mobile UI Controls
 document.addEventListener('DOMContentLoaded', function() {  
-    const toggleControlsBtn = document.getElementById('toggle-controls');
-    const toggleStatsBtn = document.getElementById('toggle-stats');
-    const controlsPanel = document.getElementById('controls-panel');
-    const statsPanel = document.getElementById('stats-panel');
-    
-    if (toggleControlsBtn && controlsPanel) {
-        toggleControlsBtn.addEventListener('click', function() {
-            controlsPanel.classList.toggle('active');
-            statsPanel.classList.remove('active');
-        });
-    }
-    
-    if (toggleStatsBtn && statsPanel) {
-        toggleStatsBtn.addEventListener('click', function() {
-            statsPanel.classList.toggle('active');
-            controlsPanel.classList.remove('active');
-        });
-    }
-    
-    // Close panels when clicking outside on mobile
-    document.addEventListener('click', function(e) {
-        if (window.innerWidth <= 768) {
-            if (!controlsPanel.contains(e.target) && e.target !== toggleControlsBtn) {
-                controlsPanel.classList.remove('active');
-            }
-            if (!statsPanel.contains(e.target) && e.target !== toggleStatsBtn) {
-                statsPanel.classList.remove('active');
-            }
-        }
-    });
-
-    
-});
-
-
-// Main application 
-document.addEventListener('DOMContentLoaded', function() {
-    // Initialize the map 
-    var map = L.map("map").setView(config.mapCenter, config.initialZoom);
-
-    // Add tile layers to the map 
-    var tileLayers = {
-        "OpenStreetMap": L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-        }),
-        "ESRI Satellite": L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-            attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
-        }),
-        "Google Maps": L.tileLayer('http://{s}.google.com/vt/lyrs=m&x={x}&y={y}&z={z}', {
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '© Google Maps'
-        }),
-        "Google Satellite": L.tileLayer('http://{s}.google.com/vt/lyrs=s,h&x={x}&y={y}&z={z}', {
-            subdomains: ['mt0', 'mt1', 'mt2', 'mt3'],
-            attribution: '© Google Maps'
-        }),
-    };
-
-    // Add the default ESRI Satellite layer
-    tileLayers["ESRI Satellite"].addTo(map);
-
-    // Create a layer control
-    L.control.layers(tileLayers, null, { position: 'bottomleft'} ).addTo(map);
-
-    // Add scale bar 
-    L.control.scale({ position: 'bottomright' }).addTo(map);
-
-    // Create a function for displaying the legend associated with the service provider icons
-    // This function generates the HTML content for the service legend displayed on the map
-    function createServiceLegend() {
-        const legendContainer = document.getElementById('service-legend');
-        const today = new Date();
-        const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
-        
-        let legendHTML = `
-            <h4>Service Provider Types</h4>
-            <div class="legend-items">
-        `;
-        
-        Object.entries(config.legendIcons).forEach(([category, {icon, colour}]) => {
-            legendHTML += `
-                <div class="service-legend-item">
-                    <i class="fa ${icon} service-legend-icon" style="color:${colour}"></i>
-                    <span class="service-legend-label">${category}</span>
-                </div>
-            `;
-        });
-        
-        legendHTML += `
-            </div>
-            <div class="legend-date">Data as of ${formattedDate}</div>
-        `;
-        
-        legendContainer.innerHTML = legendHTML;
-    }
-    
-   
+    // Initialize mobile UI
+    initMobileUI();
 
     // Initialize variables 
     var currentLanguage = localStorage.getItem('gbvMapLanguage') || 'en';
@@ -179,19 +84,19 @@ document.addEventListener('DOMContentLoaded', function() {
     var routingControl = null;
     var currentPositionMarker = null
     var serviceData = null;
-    var markers = null; // Add this to keep track of markers
+    var markers = null; // Keep track of markers
 
-    // Initialize UI 
-    initUI();
+    // Initialize the UI 
+    initUI()
+
     // Load data
     loadDistrictData();
     // Add legend 
     createServiceLegend();
     // Load service provider data
     loadServiceProviderData();
-    // Initialize mobile UI
-    initMobileUI();
 
+    // Function to start the user interface if not already started
     function initUI() {
         setupEventListeners();
    
@@ -203,21 +108,10 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('filter-government-and-municipal').checked = false;
         document.getElementById('filter-social-welfare').checked = false;
         document.getElementById('filter-child-and-youth-support-ngos').checked = false;
-
-
     }
 
-
-    // Function to set up event listeners
+    // Function to set up event listeners for UI elements
     function setupEventListeners() {
-        // Language toggle 
-        // document.getElementById('toggle-language').addEventListener('click', function() {
-        //     currentLanguage = currentLanguage === 'en' ? 'ee' : 'en';
-        //     localStorage.setItem('gbvMapLanguage', currentLanguage);
-        //     // updateLanguageUI();
-        //     if (serviceData) updateMarkers();
-        // });
-
         // Filter checkboxes 
         document.querySelectorAll('.filter-option input').forEach(function(checkbox) {
             checkbox.addEventListener('change', function() {
@@ -269,7 +163,6 @@ document.addEventListener('DOMContentLoaded', function() {
             .then(data => {
                 const districtData = data;
                 // Hide loading indicator if needed
-                // console.log("District data loaded successfully:", districtData);
                 document.getElementById('loading-indicator').style.display = 'none';
                 
                 // Add the district data to the map as a GeoJSON layer
@@ -305,7 +198,6 @@ document.addEventListener('DOMContentLoaded', function() {
             const serviceType = feature.properties.Type_of_service;
             if (serviceType) {
                 // Clean and standardize the service type
-                // const cleanType = serviceType.trim().toUpperCase();
                 const cleanType = toTitleCase(serviceType.trim()); 
                 counts[cleanType] = (counts[cleanType] || 0) + 1;
             }
@@ -476,6 +368,7 @@ document.addEventListener('DOMContentLoaded', function() {
         </div>
         `;
     }
+
     // Function to update markers on the map
     // This function clears existing markers and adds new ones based on the current filter settings
     // and the loaded service data
@@ -488,7 +381,6 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Create a new marker cluster group
         markers = L.layerGroup();
-        // markers = L.markerClusterGroup()
        
         
         // Get filter settings
@@ -517,10 +409,6 @@ document.addEventListener('DOMContentLoaded', function() {
                 default: return false;
             }
         });
-
-        // console.log("Service data loaded:", serviceData);
-        // console.log("Filtered features count:", filteredFeatures.length);
-        // console.log("Filtered features:", filteredFeatures);
     
         // Add filtered markers to the cluster group
         filteredFeatures.forEach(function(feature) {
@@ -653,6 +541,35 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+    // Create a function for displaying the legend associated with the service provider icons
+    // This function generates the HTML content for the service legend displayed on the map
+    function createServiceLegend() {
+        const legendContainer = document.getElementById('service-legend');
+        const today = new Date();
+        const formattedDate = `${String(today.getDate()).padStart(2, '0')}/${String(today.getMonth() + 1).padStart(2, '0')}/${today.getFullYear()}`;
+        
+        let legendHTML = `
+            <h4>Service Provider Types</h4>
+            <div class="legend-items">
+        `;
+        
+        Object.entries(config.legendIcons).forEach(([category, {icon, colour}]) => {
+            legendHTML += `
+                <div class="service-legend-item">
+                    <i class="fa ${icon} service-legend-icon" style="color:${colour}"></i>
+                    <span class="service-legend-label">${category}</span>
+                </div>
+            `;
+        });
+        
+        legendHTML += `
+            </div>
+            <div class="legend-date">Data as of ${formattedDate}</div>
+        `;
+        
+        legendContainer.innerHTML = legendHTML;
+    }
+
     // Show directions to a location
     function showDirections(lat, lng) {
         // First, completely remove any existing routing control
@@ -728,5 +645,5 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Make createFallBackImage available globally
     window.createFallBackImage = createFallBackImage;
+    
 });
-
