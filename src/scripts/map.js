@@ -31,5 +31,4 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Export the map instance if needed by other modules 
     window.map = map;
-
 })
