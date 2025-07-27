@@ -1,6 +1,19 @@
 /* Google Fonts Import */
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&family=Open+Sans:wght@400;600&display=swap');
 
+/* Global Variables */
+/* :root {
+    --logo-gap: 25px;
+    --control-z-index: 900;
+    --panel-z-index: 1001;
+    --header-z-index: 1002;
+  } */
+  
+  /* Use rem units for better scalability */
+  html {
+    font-size: 16px;
+  }
+
 /* Base Styles */
 body {
     margin: 0;
@@ -11,6 +24,15 @@ body {
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     background-color: #f8fafc;
+}
+
+body, #app-container {
+    overflow-x: hidden;
+}
+/* Adjust app container to account for fixed nav */
+#app-container {
+    margin-top: 60px;
+    height: calc(100vh - 60px);
 }
 
 /* Typography */
@@ -40,13 +62,13 @@ h1, h2, h3, h4 {
 }
 
 /* App Container */
-#app-container {
+/* #app-container {
     position: relative;
     width: 100%;
     height: 100vh;
     display: flex;
     flex-direction: column;
-}
+} */
 
 /* Map Container */
 #map {
@@ -104,7 +126,6 @@ h1, h2, h3, h4 {
     flex-direction: column;
 }
 
-
 /* Controls Panel */
 #controls-panel {
     position: absolute;
@@ -119,6 +140,42 @@ h1, h2, h3, h4 {
     border-radius: 12px;
     box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Add smooth transitions */
+#stats-panel, #controls-panel {
+    will-change: transform;
+    transform: translateX(0);
+}
+
+/* Panel active states */
+#stats-panel.active {
+    transform: translateX(0);
+}
+
+#controls-panel.active {
+    transform: translateX(0);
+}
+
+/* Ensure scrollable content has padding at bottom */
+.panel-content {
+    padding-bottom: 20px;
+}
+
+
+
+/* Custom scrollbar for panels */
+#stats-panel::-webkit-scrollbar, #controls-panel::-webkit-scrollbar {
+    width: 8px;
+}
+
+#stats-panel::-webkit-scrollbar-track, #controls-panel::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+#stats-panel::-webkit-scrollbar-thumb, #controls-panel::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
 }
 
 /* Panel close buttons for mobile */
@@ -186,7 +243,7 @@ h1, h2, h3, h4 {
 
 /* Search Container */
 #search-container {
-    width: 100%;
+    width: 30hw;
     margin-top: 15px;
     position: relative;
 }
@@ -576,3 +633,85 @@ h1, h2, h3, h4 {
     margin-top: 8px;
     font-style: italic;
 }
+
+/* Navigation Bar Styles */
+#main-nav {
+    background-color:#01411C; /* Green color */
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 2000;
+    height: 60px;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px; /* Increased padding */
+    height: 100%;
+}
+
+.nav-logos {
+    margin-left: -150px; /* Shift logo slightly left */
+    display: flex;
+    gap: 30px; /* Increased gap between logos */
+}
+
+.nav-logos a {
+    display: block;
+    height: 100%;
+    padding: 10px 0; /* Add some vertical padding */
+}
+
+.nav-logos img {
+    height: 40px;
+    transition: transform 0.2s;
+}
+
+.nav-logos img:hover {
+    transform: scale(1.05); /* Small hover effect */
+}
+
+.nav-items {
+    display: flex;
+    gap: 30px; /* Increased gap between items */
+}
+
+.nav-link {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    display: flex;
+    align-items: center;
+    gap: 8px; /* Increased gap between icon and text */
+    padding: 8px 12px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.nav-link:hover {
+    background-color: rgba(255,255,255,0.1); /* Subtle hover effect */
+}
+
+.nav-link i {
+    font-size: 1.1em;
+}
+
+/* Focus states for keyboard navigation */
+/* button:focus-visible,
+input:focus-visible,
+.filter-option label:focus-within {
+    outline: 3px solid #3b82f6;
+    outline-offset: 2px;
+} */
+
+/* Ensure chart responsiveness */
+/* #stats-chart {
+    width: 100% !important;
+    height: 100% !important;
+} */

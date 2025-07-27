@@ -1,7 +1,7 @@
 // Configurations and translations 
 var config = {
     // Map initial view 
-    mapCenter: [5.518837, -0.304244], // Greater Accra Region, Ghana
+    mapCenter: [5.922045, 0.999705], // Volta Region, Ghana
     initialZoom: 12,
 
     // Loaded strings  
@@ -71,7 +71,7 @@ var config = {
     // Paths 
     // Data crs must be in WGS84:4326
     providerDataPath: './src/data/gbv_service_providers.geojson',
-    greaterAccraDistrictDataPath: './src/data/districts.geojson',
+    districtDataPath: './src/data/districts.geojson',
     imagePath: "./src/images/service_providers/",
 
     // Legend Icon definitions 

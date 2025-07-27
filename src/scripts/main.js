@@ -72,7 +72,6 @@ function initMobileUI() {
     }
 }
 
-
 // Mobile UI Controls
 document.addEventListener('DOMContentLoaded', function() {  
     // Initialize mobile UI
@@ -153,7 +152,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Function to load district data
     function loadDistrictData() {
-        fetch(config.greaterAccraDistrictDataPath)
+        fetch(config.districtDataPath)
             .then(response => {
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
@@ -304,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Function to update the institution count
+
     // This function updates the institution count displayed in the UI
     function updateInstitutionCount() {
         if (!serviceData || !serviceData.features) return;
@@ -314,7 +313,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // Function to create popup content for each marker
+
     // This function generates the HTML content for the popup that appears when a marker is clicked
     function createPopupContent(feature, lang) {
         // Safely access properties with optional chaining and default values
@@ -369,7 +368,6 @@ document.addEventListener('DOMContentLoaded', function() {
         `;
     }
 
-    // Function to update markers on the map
     // This function clears existing markers and adds new ones based on the current filter settings
     // and the loaded service data
     function updateMarkers() {
