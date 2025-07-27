@@ -134,7 +134,7 @@
     }
     
     #stats-panel {
-        width: 100%; /* Fixed from 120% */
+        width: 100%; 
     }
     
     /* Ensure logos are properly positioned */
@@ -232,7 +232,7 @@
     /* Ensure panel titles have proper spacing */
     #stats-panel h3, #controls-panel h3 {
         margin-top: 0;
-        margin-right: 30px; /* Give space for any potential UI elements */
+        margin-right: 30px; 
     }
 
     .leaflet-control-container {
@@ -292,19 +292,6 @@
 }
 
 
-/* @media screen and (min-width: 768px) and (max-height: 425px) {
-    .leaflet-control-container .leaflet-left {
-        left: 10px;
-        bottom: 50px; 
-    }
-
-    .leaflet-control-scale {
-        right: 2px;
-        left: 2px;
-        bottom: 1003px; 
-    }
-} */
-
 /* Small tablets and large phones */
 @media screen and (max-width: 768px) {
     #app-container {
@@ -318,7 +305,7 @@
 
     #mobile-header {
         position: fixed;
-        top: 50px; /* Starts below the nav bar */
+        top: 50px; 
         left: 0;
         right: 0;
         height: 50px;
@@ -370,7 +357,7 @@
     
     /* Ensure content doesn't overlap fixed header */
     #controls-panel, #stats-panel {
-        padding-top: 60px; /* Space for close button */
+        padding-top: 60px; 
         box-sizing: border-box;
     }
 
@@ -636,7 +623,7 @@
     }
     
     #search-input {
-        font-size: 16px; /* Better for mobile input */
+        font-size: 16px; 
     }
     
     /* Make sure panels don't overflow screen edges */

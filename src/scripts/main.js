@@ -539,7 +539,6 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
-    // Create a function for displaying the legend associated with the service provider icons
     // This function generates the HTML content for the service legend displayed on the map
     function createServiceLegend() {
         const legendContainer = document.getElementById('service-legend');
