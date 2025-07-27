@@ -334,17 +334,21 @@ document.addEventListener('DOMContentLoaded', function() {
             : createFallBackImage(lang.imageError);
     
         // Handle multilingual names and addresses
-        const name = (currentLanguage === 'ee' && properties.name_ewe) 
-            ? properties.name_ewe 
-            : properties.SP_Name || 'Unknown';
+        // const name = (currentLanguage === 'ee' && properties.name_ewe) 
+        //     ? properties.name_ewe 
+        //     : properties.SP_Name || 'Unknown';
         
-        const address = (currentLanguage === 'ee' && properties.address_ewe)
-            ? properties.address_ewe
-            : properties.Physical_Address || 'No address available';
+        // const address = (currentLanguage === 'ee' && properties.address_ewe)
+        //     ? properties.address_ewe
+        //     : properties.Physical_Address || 'No address available';
         
-        const services = (currentLanguage === 'ee' && properties.services_ewe)
-            ? properties.services_ewe
-            : properties.Services || 'No services listed';
+        // const services = (currentLanguage === 'ee' && properties.services_ewe)
+        //     ? properties.services_ewe
+        //     : properties.Services || 'No services listed';
+        
+        const name = properties.SP_Name || 'Unknown Service Provider';
+        const address = properties.Physical_Address || 'No address available';
+        const services = properties.Services || 'No services listed';
     
         return `
         <div class="provider-popup">
@@ -491,7 +495,8 @@ document.addEventListener('DOMContentLoaded', function() {
         var term = searchTerm.toLowerCase();
         
         var matches = serviceData.features.filter(function(feature) {
-            var searchText = `${feature.properties.SP_Name} ${feature.properties.name_ewe || ''} ${feature.properties.Physical_Address} ${feature.properties.address_ewe || ''} ${feature.properties.Services} ${feature.properties.services_ewe || ''}`.toLowerCase();
+            // var searchText = `${feature.properties.SP_Name} ${feature.properties.name_ewe || ''} ${feature.properties.Physical_Address} ${feature.properties.address_ewe || ''} ${feature.properties.Services} ${feature.properties.services_ewe || ''}`.toLowerCase();
+            var searchText = `${feature.properties.SP_Name || ''} ${feature.properties.Physical_Address || ''} ${feature.properties.Services || ''}`.toLocaleLowerCase();
             return searchText.includes(term);
         });
         
@@ -499,15 +504,20 @@ document.addEventListener('DOMContentLoaded', function() {
             matches.slice(0, 5).forEach(function(feature) {
                 var resultItem = document.createElement('div');
                 resultItem.className = 'search-result';
-                resultItem.textContent = currentLanguage === 'ee' && feature.properties.name_ewe 
-                    ? feature.properties.name_ewe 
-                    : feature.properties.SP_Name;
+                // resultItem.textContent = currentLanguage === 'ee' && feature.properties.name_ewe 
+                //     ? feature.properties.name_ewe 
+                //     : feature.properties.SP_Name;
+                resultItem.textContent = feature.properties.SP_Name || 'Unknown Service Provider';
+
                 resultItem.addEventListener('click', function() {
                     zoomToProvider(feature);
                     resultsContainer.innerHTML = '';
-                    document.getElementById('search-input').value = currentLanguage === 'ee' && feature.properties.name_ewe 
-                        ? feature.properties.name_ewe 
-                        : feature.properties.SP_Name;
+
+                    // Set the search input to the selected provider's name
+                    // document.getElementById('search-input').value = currentLanguage === 'ee' && feature.properties.name_ewe 
+                    //     ? feature.properties.name_ewe 
+                    //     : feature.properties.SP_Name;
+                    document.getElementById('search-input').value = feature.properties.SP_Name || 'Unknown Service Provider';
                 });
                 resultsContainer.appendChild(resultItem);
             });
